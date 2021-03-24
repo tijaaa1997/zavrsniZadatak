@@ -7,8 +7,33 @@
 <?php
 
 
-include('header.php');
-include ('db.php');
+    include('header.php');
+    include ('db.php');
+
+    //hocemo da dobavimo postove iz baze
+    $sql = "SELECT * FROM posts";
+
+    $statement = $connection->prepare($sql);
+
+    // izvrsavamo upit
+    $statement->execute();
+
+    // zelimo da se rezultat vrati kao asocijativni niz.
+    // ukoliko izostavimo ovu liniju, vratice nam se obican, numerisan niz
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+
+    // punimo promenjivu sa rezultatom upita
+    $posts = $statement->fetchAll();
+
+    // koristite var_dump kada god treba da proverite sadrzaj neke promenjive
+        echo '<pre>';
+        var_dump($posts);
+        echo '</pre>';
+
+    //ispisemo na ekran bilo kako
+
+
+    //prikazemo u htmlu
 ?>
 <main role="main" class="container">
 
