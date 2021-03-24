@@ -21,7 +21,8 @@
         //2.napraviti sql upit
         //3.izvrsiti sql upit i uzeti rezultat
 
-        $sql = "SELECT * FROM posts WHERE id=:id";
+        $sql = "select posts.id, posts.title, posts.body, posts.author, posts.created_at, comments.id as com_id, comments.body as com_body, comments.author as com_author 
+        FROM posts inner join comments on posts.id = post_id  WHERE posts.id=:id";
 
         $statement = $connection->prepare($sql);
 
@@ -40,6 +41,8 @@
         if(sizeof($posts) == 0) {
             echo "Doslo je do greske. Ne postoji post sa trazenim id.";
         } else {
+
+    
             $post = $posts[0];
 
             //4. prikazati dobavljeni post ili poruku o gresci
@@ -56,12 +59,21 @@
                     </div>
                 </div>
             </main>
-        
+            
+            <ul>
         <?php
             }
 
+            
+            foreach($posts as $post_and_comment) {
+                ?>
+                <li><?php echo($post_and_comment['com_body']) ?> by <?php echo($post_and_comment['com_author']) ?></li>
+                <hr/>
+                <?php
+            }
+
         ?>
-      
+        </ul>
 
 
     <?php
