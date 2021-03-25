@@ -77,6 +77,7 @@
 
 
     <?php
+        include('create-com.php');
         include('sidebar.php');
         include('footer.php');
 
