@@ -8,6 +8,7 @@
 
 
     include('header.php');
+    include('sidebar.php');
     include ('db.php');
 
     //hocemo da dobavimo postove iz baze
@@ -61,8 +62,8 @@
 </div>
 </main>
 <?php
-include('sidebar.php');
-include('footer.php');
+
+    include('footer.php');
 ?>
 </body>
 </html>

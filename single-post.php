@@ -8,6 +8,8 @@
 
         include('db.php');
         include('header.php');
+        include('sidebar.php');
+
         //posts.php
         //1.napraviti nazive da budu linkovi 
         //2. kada se stisne na link treba da se posalje GET request sa odgovarajucim id    localhost:8080/single-post.php?id=2
@@ -78,8 +80,8 @@
 
     <?php
         include('create-com.php');
-        include('sidebar.php');
         include('footer.php');
+    
 
     ?>
 
